@@ -27,18 +27,21 @@ $.get(url, function (data) {
 });
 
 // Fetch places
+const data = {};
+
 $.ajax({
+  url: 'http://127.0.0.1:5001/api/v1/places_search',
   method: 'POST',
-  url: 'http://127.0.0.1:5001/api/v1/places_search/',
-  contenType: 'application/json',
-  data: JSON.stringify(place),
+  dataType: 'json',
+  contentType: 'application/json',
+  data: JSON.stringify(data),
   success: function (result) {
     $.each(result, (i, place) => {
       $('section.places').append(`
       <article>
         <div class="title_box">
           <h2>${place.name}</h2>
-          <div class="price_by_night">${place.price_by_night}</div>
+          <div class="price_by_night">$${place.price_by_night}</div>
         </div>
         <div class="information">
           <div class="max_guest">${place.max_guest} Guests</div>
@@ -47,6 +50,6 @@ $.ajax({
         </div>
         <div class="description">${place.description}</div>
       </article>`);
-    })
+    });
   }
 });

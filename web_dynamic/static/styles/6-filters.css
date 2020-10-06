@@ -38,8 +38,13 @@ button:hover {
 .filters h4 {
     margin-left: 15%;
     margin-top: 0;
+    padding: 0px 0px 15px 0px; /* Fix amenities list block*/
     font-weight: 400;
     font-size: 14px;
+    text-overflow: ellipsis;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .locations {
     height: 100%;
